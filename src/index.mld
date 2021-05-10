@@ -48,6 +48,7 @@ Framework for fast, native code, cross-platform GUI applications.
                 {li {{:../Revery/Revery_UI_Components/ClipContainer/index.html} ClipContainer}}
                 {li {{:../Revery/Revery_UI_Components/Container/index.html} Container}}
                 {li {{:../Revery/Revery_UI_Components/Dropdown/index.html} Dropdown}}
+                {li {{:../Revery/Revery_UI_Components/KeyboardInput/index.html} KeyboardInput}}
                 {li {{:../Revery/Revery_UI_Components/Input/index.html} Input}}
                 {li {{:../Revery/Revery_UI_Components/Positioned/index.html} Positioned}}
                 {li {{:../Revery/Revery_UI_Components/RadioButtons/index.html} RadioButtons}}

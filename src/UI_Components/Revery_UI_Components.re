@@ -21,6 +21,7 @@ module DropdownString =
     type t = string;
   });
 module ExpandContainer = ExpandContainer;
+module KeyboardInput = KeyboardInput;
 module Input = Input;
 module Link = Link;
 module Positioned = Positioned;
