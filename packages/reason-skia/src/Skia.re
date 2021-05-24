@@ -121,6 +121,20 @@ module ImageFilter = {
     };
   };
 
+  module Blur = {
+    let make = (~sigmaX, ~sigmaY, inputOption, cropRectOption) => {
+      let blurFilter =
+        SkiaWrapped.ImageFilter.Blur.allocate(
+          sigmaX,
+          sigmaY,
+          inputOption,
+          cropRectOption,
+        );
+      Gc.finalise(SkiaWrapped.ImageFilter.delete, blurFilter);
+      blurFilter;
+    };
+  };
+
   let makeDropShadow = DropShadow.make;
 };
 

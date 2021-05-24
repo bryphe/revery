@@ -80,7 +80,7 @@ let draw = canvas => {
 
   let fill3 = Paint.make();
   Paint.setColor(fill3, Color.makeArgb(0xFFl, 0xFFl, 0xFFl, 0xFFl));
-  Paint.setTextSize(fill3, 30.);
+  Paint.setTextSize(fill3, 20.);
 
   let nonExistentTypeface = Typeface.makeFromFile("non-existent-font.ttf", 0);
   assert(nonExistentTypeface == None);
@@ -97,7 +97,18 @@ let draw = canvas => {
     print_endline(__LOC__ ++ ": we will set.");
     Paint.setTypeface(fill3, typeFace);
     print_endline(__LOC__ ++ ": setTypeface is OK.");
-    Canvas.drawText(canvas, "Hello, world!", 30., 30., fill3);
+    Paint.setImageFilter(
+      fill3,
+      Some(ImageFilter.Blur.make(3., 3., None, None)),
+    );
+    let spreadX = 3.0;
+    let spreadY = 3.0;
+    Canvas.drawText(canvas, "Hello, world!", 150. -. spreadX, 50., fill3);
+    Canvas.drawText(canvas, "Hello, world!", 150. +. spreadX, 50., fill3);
+    Canvas.drawText(canvas, "Hello, world!", 150., 50. -. spreadY, fill3);
+    Canvas.drawText(canvas, "Hello, world!", 150., 50. +. spreadY, fill3);
+    Paint.setImageFilter(fill3, None);
+    Canvas.drawText(canvas, "Hello, world!", 150., 50., fill3);
     let metrics = FontMetrics.make();
     let _ret: float = Paint.getFontMetrics(fill3, metrics, 1.0);
 

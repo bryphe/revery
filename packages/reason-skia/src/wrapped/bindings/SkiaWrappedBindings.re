@@ -230,6 +230,18 @@ module M = (F: FOREIGN) => {
           @-> returning(t),
         );
     };
+
+    module Blur = {
+      let allocate =
+        foreign(
+          "sk_imagefilter_new_blur",
+          float
+          @-> float
+          @-> ptr_opt(SkiaTypes.ImageFilter.t)
+          @-> ptr_opt(SkiaTypes.ImageFilter.CropRect.t)
+          @-> returning(t),
+        );
+    };
   };
 
   module Point = {

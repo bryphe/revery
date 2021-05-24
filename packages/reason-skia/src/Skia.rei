@@ -110,6 +110,11 @@ module ImageFilter: {
       t;
   };
 
+  module Blur: {
+    let make:
+      (~sigmaX: float, ~sigmaY: float, option(t), option(CropRect.t)) => t;
+  };
+
   let makeDropShadow:
     (
       float,
