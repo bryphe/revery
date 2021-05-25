@@ -41,6 +41,8 @@ let example = () =>
 An h2 header
 ------------
 
+![Test Image](https://raw.githubusercontent.com/revery-ui/revery/master/assets/logo.png)
+
 Here's a numbered list:
 
  1. first item

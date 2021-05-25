@@ -34,7 +34,8 @@ let make:
     ~h6Style: list(Revery_UI.Style.textStyleProps)=?,
     ~inlineCodeStyle: list(Revery_UI.Style.textStyleProps)=?,
     ~codeBlockStyle: list(Revery_UI.Style.viewStyleProps)=?,
+    ~imageElement: (~url: string) => Revery_UI.element=?,
     ~syntaxHighlighter: SyntaxHighlight.t=?,
     unit
   ) =>
-  Brisk_reconciler.element(Revery_UI.React.node);
+  Revery_UI.element;

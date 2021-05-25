@@ -47,6 +47,7 @@ type style = {
   codeBlockFontSize: float,
   baseFontSize: float,
   codeBlock: list(Style.viewStyleProps),
+  imageElement: (~url: string) => Revery_UI.element,
 };
 
 module SyntaxHighlight = {
@@ -143,7 +144,13 @@ type inlineAttrs =
   | Bolded
   | Monospaced;
 
-type kind = [ | `Paragraph | `Heading(int) | `Link(string) | `InlineCode];
+type kind = [
+  | `Paragraph
+  | `Heading(int)
+  | `Image(string)
+  | `Link(string)
+  | `InlineCode
+];
 
 let selectStyleFromKind = (kind: kind, styles) =>
   switch (kind) {
@@ -223,6 +230,7 @@ let generateText = (text, styles, attrs, dispatch, state) => {
         italic={isItalicized(attrs)}
       />
     </View>
+  | `Image(url) => styles.imageElement(~url)
   | _ =>
     <Text
       text
@@ -269,7 +277,12 @@ let rec generateInline' = (inline, styles, attrs, dispatch, state) => {
     generateInline'(
       l.def.label,
       styles,
-      {...attrs, kind: `Link(l.def.destination)},
+      {
+        ...attrs,
+        kind:
+          l.kind == Url
+            ? `Link(l.def.destination) : `Image(l.def.destination),
+      },
       dispatch,
       state,
     )
@@ -464,6 +477,12 @@ let generateMarkdown = (mdText: string, styles, highlighter, dispatch, state) =>
   |> React.listToElement;
 };
 
+let defaultImageRenderer = (~url as _) => {
+  <View
+    style=Style.[width(64), height(64), backgroundColor(Colors.gray)]
+  />;
+};
+
 let%component make =
               (
                 ~markdown as mdText="",
@@ -482,6 +501,7 @@ let%component make =
                 ~h6Style=Style.emptyTextStyle,
                 ~inlineCodeStyle=Style.emptyTextStyle,
                 ~codeBlockStyle=Styles.Code.defaultBlock,
+                ~imageElement=defaultImageRenderer,
                 ~syntaxHighlighter=SyntaxHighlight.default,
                 (),
               ) => {
@@ -508,6 +528,7 @@ let%component make =
          baseFontSize,
          codeBlockFontSize,
          codeBlock: codeBlockStyle,
+         imageElement,
        },
        syntaxHighlighter,
        dispatch,
