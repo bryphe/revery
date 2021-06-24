@@ -222,6 +222,7 @@ let start = init => {
   let _ = Sdl2.ScreenSaver.enable();
 
   let _handleEvent = evt => {
+    appInstance.idleCount = 0;
     let handleEvent = windowID => {
       let window = getWindowById(appInstance, windowID);
       switch (window) {

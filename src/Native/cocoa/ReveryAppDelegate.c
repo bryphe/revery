@@ -22,6 +22,7 @@
 
     NSString *valueToSave = @"true";
     [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"ApplePressAndHoldEnabled"];
+    [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"AppleMomentumScrollSupported"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     return self;
