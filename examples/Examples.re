@@ -85,6 +85,7 @@ let examples = [
     render: w => NativeMenuExample.render(w),
     source: "NativeMenuExample.re",
   },
+  {name: "Native: Tray", render: _w => Tray.render(), source: "Tray.re"},
   {
     name: "Native: Inputs",
     render: _ => NativeInputExample.render(),

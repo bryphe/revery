@@ -12,8 +12,8 @@
   (language c)
   (names Revery_Native dialog dialog_cocoa dialog_win32 dialog_gtk
     notification notification_cocoa environment environment_mac
-    environment_linux environment_windows icon icon_cocoa icon_win32 shell
-    shell_cocoa shell_gtk shell_win32 locale locale_cocoa locale_win32 menu
+    environment_linux environment_windows icon icon_cocoa icon_win32 image_cocoa shell
+    shell_cocoa shell_gtk shell_win32 tray tray_cocoa locale locale_cocoa locale_win32 menu
     menu_cocoa input input_cocoa window window_cocoa utilities ReveryGtk
     ReveryGtk_Widget ReveryAppDelegate ReveryAppDelegate_func ReveryNSObject
     ReveryNSView ReveryNSViewCoords ReveryMenuItemTarget ReveryButtonTarget

@@ -19,6 +19,13 @@ void revery_setIconProgress_cocoa(void* dt, double progress);
 void revery_setIconProgressIndeterminate_cocoa(void *dt);
 void revery_hideIconProgress_cocoa(void* ip);
 
+/* Tray */
+void *revery_setTrayTitle_cocoa(void *nsStatusItem, const char *titleText);
+void revery_removeStatusItem_cocoa(void* nsStatusItem);
+
+/* Image functions */
+void *revery_makeImageFromAbsolutePath_cocoa(const char *image_path_v);
+
 /* Open functions */
 int revery_openURL_cocoa(const char *url_string);
 int revery_openFile_cocoa(const char *path_string);
