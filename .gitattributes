@@ -8,5 +8,6 @@
 # Hide lockfile updates
 *esy.lock/* linguist-generated
 
-# Recognize all re files as Reason
+# Linguist override
 *.re linguist-language=Reason
+*.rei linguist-language=Reason
